@@ -23,5 +23,5 @@ for movie_tag in movies:
     movie_title.append(title)
     print(ranking, title)
 
-df = pd.DataFrame([movie_ranking]) # work on this
-df.to_csv('movies.csv', mode='w')
+df = pd.DataFrame(movie_title, movie_ranking) # work on this
+df.to_csv('movies.txt', mode='w')
