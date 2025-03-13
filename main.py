@@ -23,9 +23,6 @@ for movie_tag in movies:
 
 movie_ranking = movie_ranking[:25]
 movie_title = movie_title[:25]
-# df = pd.DataFrame(movie_title, movie_ranking) # work on this
-# print(df)
-# df.to_csv('movies.txt', mode='w')
 
 with open(file='movies.txt', mode='w', newline='') as file:
     for ranking, title in zip(movie_ranking, movie_title):
