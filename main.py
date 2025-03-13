@@ -1,7 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-import csv
 
 URL = 'https://www.imdb.com/list/ls055592025/'
 headers = {
@@ -23,5 +21,12 @@ for movie_tag in movies:
     movie_title.append(title)
     print(ranking, title)
 
-df = pd.DataFrame(movie_title, movie_ranking) # work on this
-df.to_csv('movies.txt', mode='w')
+movie_ranking = movie_ranking[:25]
+movie_title = movie_title[:25]
+# df = pd.DataFrame(movie_title, movie_ranking) # work on this
+# print(df)
+# df.to_csv('movies.txt', mode='w')
+
+with open(file='movies.txt', mode='w', newline='') as file:
+    for ranking, title in zip(movie_ranking, movie_title):
+        file.write(f'{ranking} {title}\n')
